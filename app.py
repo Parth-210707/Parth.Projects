@@ -4,22 +4,25 @@ import joblib
 # 1. Page Configuration (Must be first)
 st.set_page_config(page_title="IPL Predictor", page_icon="🏏", layout="centered")
 
-# 2. THE CSS MAGIC INJECTION
+# 2. THE CSS MAGIC INJECTION (STADIUM BG + GLASSMORPHISM + CURSOR)
 premium_styling = """
 <style>
 /* Import custom font from Google */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 
-/* Apply custom font and CRICKET BALL CURSOR to whole app */
+/* Apply custom font and CRICKET BALL CURSOR */
 html, body, [class*="css"] {
     font-family: 'Poppins', sans-serif;
     cursor: url('https://cdn-icons-png.flaticon.com/32/53/53283.png'), auto !important;
 }
 
-/* Beautiful Dark Gradient Background */
+/* EPIC STADIUM BACKGROUND WITH DARK OVERLAY FOR READABILITY */
 .stApp {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background: linear-gradient(rgba(10, 20, 30, 0.6), rgba(0, 0, 0, 0.9)), 
+                url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&q=80&w=2000');
+    background-size: cover;
     background-attachment: fixed;
+    background-position: center;
     color: white;
 }
 
@@ -39,15 +42,17 @@ h1 {
     font-weight: 400;
     margin-bottom: 30px;
     font-size: 18px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
 }
 
-/* Make Dropdowns and Inputs look like Glass */
+/* Make Dropdowns and Inputs look like Glass over the Stadium */
 div[data-baseweb="select"] > div, input[type="number"] {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(15, 25, 40, 0.75) !important;
+    border: 1px solid rgba(255, 215, 0, 0.3) !important;
+    backdrop-filter: blur(8px) !important;
     border-radius: 8px !important;
     color: white !important;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5), 0 4px 10px rgba(0,0,0,0.3);
 }
 
 /* Change Dropdown text color to gold */
@@ -55,6 +60,7 @@ div[data-baseweb="select"] > div, input[type="number"] {
     color: #FFD700 !important;
     font-weight: 600 !important;
     letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
 }
 
 /* Glowing Neon Button */
@@ -131,7 +137,7 @@ if st.button("LAUNCH PREDICTION"):
         
         # Premium Custom Result Banner
         result_html = f"""
-        <div style="background: rgba(0, 0, 0, 0.7); border-left: 8px solid #FFD700; border-radius: 10px; padding: 25px; margin-top: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
+        <div style="background: rgba(10, 20, 30, 0.85); border-left: 8px solid #FFD700; border-radius: 10px; padding: 25px; margin-top: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.8); backdrop-filter: blur(10px);">
             <p style="color: #A0EBCB; font-size: 16px; margin: 0; font-weight: 600; letter-spacing: 1px;">CRICKET ENGINE ANALYSIS</p>
             <h2 style="color: #ffffff; font-size: 32px; font-weight: 800; margin: 10px 0; text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);">🏆 PREDICTED WINNER: <span style="color: #FFD700;">{winner.upper()}</span></h2>
             <p style="color: #ccc; font-size: 14px; margin: 0;"><strong>Match Info:</strong> {batting_team} batted first. {chasing_team} is chasing {target_runs}.</p>
