@@ -4,17 +4,17 @@ import joblib
 # 1. Page Configuration (Must be first)
 st.set_page_config(page_title="IPL Predictor", page_icon="🏏", layout="centered")
 
-# 2. THE CSS MAGIC INJECTION (STADIUM BG + GLASSMORPHISM + BIG GREEN BALL CURSOR)
+# 2. THE CSS MAGIC INJECTION (STADIUM BG + GLASSMORPHISM + SLEEK GOLDEN CURSOR)
 premium_styling = """
 <style>
 /* Import custom font from Google */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 
-/* Apply custom font and BIG GREEN BALL CURSOR */
+/* Apply custom font and SLEEK GOLDEN ARROW CURSOR */
 html, body, [class*="css"] {
     font-family: 'Poppins', sans-serif;
-    /* Custom SVG Cursor: Badi Green Ball (48x48 size) */
-    cursor: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%2384cc16' stroke='%23000' stroke-width='2'/%3E%3Cpath d='M 12 5 A 18 18 0 0 0 12 43' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Cpath d='M 36 5 A 18 18 0 0 1 36 43' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E") 24 24, auto !important;
+    /* Custom SVG Cursor: Sharp Golden Pointer */
+    cursor: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24'%3E%3Cpath fill='%23FFD700' stroke='%23000' stroke-width='1.5' d='M4 2 L20 12 L11 14 L8 22 Z'/%3E%3C/svg%3E") 4 2, auto !important;
 }
 
 /* EPIC STADIUM BACKGROUND WITH DARK OVERLAY FOR READABILITY */
